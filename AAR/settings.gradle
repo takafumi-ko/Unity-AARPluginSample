@@ -1,0 +1,3 @@
+include ':samplePlugin'
+include ':app'
+rootProject.name = "UnityAARPluginSample"
