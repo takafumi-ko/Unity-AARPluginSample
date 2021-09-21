@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - main
-    path-ignore:
-      - UnityProjectSample/**
-      - .github/workflows/activation.yml
-      - README.md
-      - LICENCE
+    paths-ignore:
+      - 'UnityProjectSample/**'
+      - '.github/workflows/activation.yml'
+      - 'README.md'
+      - 'LICENCE'
 
 jobs:
   build:
