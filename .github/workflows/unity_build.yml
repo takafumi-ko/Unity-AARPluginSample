@@ -1,0 +1,51 @@
+name: unity build apk
+
+on:
+  push:
+    branches:
+      - main
+    path-ignore:
+      - 'README.md'
+      - 'LICENCE'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        projectPath:
+          - ./UnityProjectSample
+        unityVersion:
+          - 2021.1.13f1
+        targetPlatform:
+         - Android
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        lfs: false
+        clean: false
+        
+    # Cache
+    - uses: actions/cache@v2
+      with:
+        path: ${{ matrix.projectPath }}/Library
+        key: Library
+
+    # Build
+    - name: Build project
+      uses: game-ci/unity-builder@v2
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      with:
+        unityVersion: ${{ matrix.unityVersion }}
+        targetPlatform: ${{ matrix.targetPlatform }}
+
+    # Upload
+    - name: Upload apk 
+      uses: actions/upload-artifact@v2
+      with:
+        name: Build-${{ matrix.targetPlatform }}
+        path: build/${{ matrix.targetPlatform }}
+    
