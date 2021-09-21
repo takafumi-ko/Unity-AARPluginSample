@@ -22,12 +22,12 @@ jobs:
     # Gradleのキャッシュ復元
     - uses: actions/cache@v2
       with:
-        path: ~/AAR/.gradle/caches
+        path: ./AAR/.gradle/caches
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
         restore-keys: |
           ${{ runner.os }}-gradle-
     - name: build aar
-      run: ~/AAR/.gradlew samplePlugin:assembleDebug
+      run: ./AAR/gradlew samplePlugin:assembleDebug
     - name: upload aar 
       uses: actions/upload-artifact@v2
       with:
