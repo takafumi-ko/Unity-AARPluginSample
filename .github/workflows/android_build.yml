@@ -6,6 +6,7 @@ on:
       - main
     path-ignore:
       - UnityProjectSample/**
+      - .github/workflows/activation.yml
       - README.md
       - LICENCE
 
