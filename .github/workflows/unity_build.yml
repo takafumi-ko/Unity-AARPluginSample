@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'UnityProjectSample/**'
-      - .github/workflows/unity_build.yml'
+      - '.github/workflows/unity_build.yml'
 
 jobs:
   build:
