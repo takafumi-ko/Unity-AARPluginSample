@@ -1,0 +1,11 @@
+name: sample get user info
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build aar
+        run: |
+          curl https://api.github.com/users/takafumi-ko
