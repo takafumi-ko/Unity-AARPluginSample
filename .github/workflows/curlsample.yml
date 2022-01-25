@@ -3,7 +3,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  build:
+  curl:
     runs-on: ubuntu-latest
     steps:
       - name: call curl
