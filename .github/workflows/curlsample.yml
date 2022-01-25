@@ -6,6 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: build aar
+      - name: call curl
         run: |
           curl https://api.github.com/users/takafumi-ko
